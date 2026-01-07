@@ -14,7 +14,7 @@ migrate = Migrate()
 csrf = CSRFProtect()
 
 SECURITY_HEADERS = {
-    "Cache-Control": "no-store, max-age=0",
+    "Cache-Control": "no-store, max-age=0",-
     "Clear-Site-Data": "\"cache\",\"storage\"",    #,\"cookies\"
     #"Content-Security-Policy": "default-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests",
     "Cross-Origin-Embedder-Policy": "require-corp",

@@ -13,13 +13,13 @@ def create_db(db: SQLAlchemy, app: Flask) -> None:
         app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{LOCAL_DB_NAME}'
     db.init_app(app)
 
-# Fill in Paczkomats to database and fill empty city_id of Paczkomats records
+# Uzupełnia tabelę Paczkomats i wypełnia puste pole `city_id` w rekordach Paczkomats
 def seed_database(db: SQLAlchemy) -> None:
     from website.models import Paczkomats, City
 
     existing_paczkomats = Paczkomats.query.all()
     if existing_paczkomats and not hasattr(Paczkomats, 'city_id'):
-        # Temporary tables
+        # Tymczasowe tabele
         db.session.execute('''
             CREATE TABLE IF NOT EXISTS paczkomats_temp (
                 code_id VARCHAR(10) PRIMARY KEY,
